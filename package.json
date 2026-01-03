@@ -1,0 +1,68 @@
+{
+  "name": "cline-batch-executor",
+  "displayName": "Cline Batch Executor",
+  "description": "Batch processing extension using Cline API to apply AI transformations to multiple files",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cline-batch-executor.startBatchProcessing"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cline-batch-executor.startBatchProcessing",
+        "title": "Cline Batch Executor: Start Batch Processing"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "cline-batch-executor.startBatchProcessing",
+          "when": "workspaceFolderCount >= 1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "cline-batch-executor.startBatchProcessing",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "^16.11.7",
+    "typescript": "^4.5.5"
+  },
+  "extensionDependencies": [
+    "saoudrizwan.claude-dev"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cline-batch-executor.git"
+  },
+  "publisher": "yourpublisher",
+  "icon": "images/icon.png",
+  "keywords": [
+    "cline",
+    "batch",
+    "ai",
+    "refactor",
+    "automation"
+  ],
+  "license": "MIT"
+}
