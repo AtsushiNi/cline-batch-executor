@@ -10,20 +10,29 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:cline-batch-executor.startBatchProcessing"
+    "onCommand:cline-batch-executor.startBatchProcessing",
+    "onCommand:cline-batch-executor.openDashboard"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "cline-batch-executor.startBatchProcessing",
-        "title": "Cline Batch Executor: Start Batch Processing"
+        "title": "Cline Batch Executor: 対象ファイルとタスク内容を指定してClineのバッチ処理を開始する"
+      },
+      {
+        "command": "cline-batch-executor.openDashboard",
+        "title": "Cline Batch Executor: ダッシュボードを開く"
       }
     ],
     "menus": {
       "commandPalette": [
         {
           "command": "cline-batch-executor.startBatchProcessing",
+          "when": "workspaceFolderCount >= 1"
+        },
+        {
+          "command": "cline-batch-executor.openDashboard",
           "when": "workspaceFolderCount >= 1"
         }
       ],
@@ -44,8 +53,8 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.60.0",
     "@types/node": "^16.11.7",
+    "@types/vscode": "^1.60.0",
     "typescript": "^4.5.5"
   },
   "extensionDependencies": [
@@ -64,5 +73,8 @@
     "refactor",
     "automation"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jsonc-parser": "^3.3.1"
+  }
 }
